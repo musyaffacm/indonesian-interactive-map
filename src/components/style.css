@@ -1,5 +1,5 @@
 svg#indonesian_map > path:hover {
-  fill: #3661eb;
+  /* fill: #3661eb; */
   stroke: white;
   stroke-width: 1;
   stroke-linejoin: round;
@@ -13,7 +13,7 @@ svg#indonesian_map > path:hover.disabled {
 }
 
 svg#indonesian_map > path {
-  fill: #31cd54;
+  /* fill: #31cd54; */
 }
 
 svg#indonesian_map > path.disabled {

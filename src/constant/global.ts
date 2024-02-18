@@ -5,4 +5,6 @@ type DataInterface = {
 
 export type MapProps = {
   data: DataInterface[];
+  provinceColor?: string;
+  provinceHoverColor?: string;
 };
