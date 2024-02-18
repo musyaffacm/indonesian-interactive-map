@@ -1,3 +1,5 @@
+import { DataInterface } from "./global";
+
 interface ProvinceData {
   id: number;
   key: string;
@@ -214,10 +216,11 @@ export const SAMPLE_DATA = {
   papua: "",
 };
 
-export const SAMPLE_DATA_BY_ID: { id: number; description: string }[] = [
+export const SAMPLE_DATA_BY_ID: DataInterface[] = [
   {
     id: 11,
     description: "Deskripsi Aceh",
+    color: "red",
   },
   {
     id: 12,

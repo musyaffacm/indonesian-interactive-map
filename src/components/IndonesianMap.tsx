@@ -20,6 +20,16 @@ const IndonesianMap = ({
           return;
         }
 
+        // find province props data item
+        const provincePropItem = data.find(
+          (datum) => datum.id == Number(item.id)
+        );
+
+        // set fill color if custom color exist
+        if (provincePropItem?.color) {
+          item.setAttribute("fill", provincePropItem.color);
+        }
+
         // attach mouseenter event
         item.addEventListener("mouseenter", function () {
           const bounding = item.getBoundingClientRect();
@@ -34,9 +44,7 @@ const IndonesianMap = ({
               "style",
               displayTooltip + "; " + topTooltip + "; " + leftTooltip
             );
-            const description = data.find(
-              (datum) => datum.id == Number(item.id)
-            )?.description;
+            const description = provincePropItem?.description;
             tooltip.textContent =
               (item?.textContent || "") +
               (description ? ": " + description : "");
@@ -45,7 +53,14 @@ const IndonesianMap = ({
 
         // when mouse leave hide the tooltip
         item.addEventListener("mouseleave", function () {
-          item.setAttribute("fill", provinceColor);
+          // reset fill color
+          if (provincePropItem?.color) {
+            item.setAttribute("fill", provincePropItem?.color);
+          } else {
+            item.setAttribute("fill", provinceColor);
+          }
+
+          // hide tooltip
           if (tooltip !== null) {
             tooltip.setAttribute("style", "display: none");
           }
