@@ -1,6 +1,6 @@
 import { DataInterface } from "./global";
 
-interface ProvinceData {
+export interface ProvinceData {
   id: number;
   key: string;
   name: string;
@@ -353,5 +353,144 @@ export const SAMPLE_DATA_BY_ID: DataInterface[] = [
   {
     id: 91,
     description: "Deskripsi Papua",
+  },
+];
+
+export const SAMPLE_DATA_BY_ID_EMPTY: DataInterface[] = [
+  {
+    id: 11,
+    description: "",
+  },
+  {
+    id: 12,
+    description: "",
+  },
+  {
+    id: 13,
+    description: "",
+  },
+  {
+    id: 14,
+    description: "",
+  },
+  {
+    id: 15,
+    description: "",
+  },
+  {
+    id: 16,
+    description: "",
+  },
+  {
+    id: 17,
+    description: "",
+  },
+  {
+    id: 18,
+    description: "",
+  },
+  {
+    id: 19,
+    description: "",
+  },
+  {
+    id: 21,
+    description: "",
+  },
+  {
+    id: 31,
+    description: "",
+  },
+  {
+    id: 32,
+    description: "",
+  },
+  {
+    id: 33,
+    description: "",
+  },
+  {
+    id: 34,
+    description: "",
+  },
+  {
+    id: 35,
+    description: "",
+  },
+  {
+    id: 36,
+    description: "",
+  },
+  {
+    id: 51,
+    description: "",
+  },
+  {
+    id: 52,
+    description: "",
+  },
+  {
+    id: 53,
+    description: "",
+  },
+  {
+    id: 61,
+    description: "",
+  },
+  {
+    id: 62,
+    description: "",
+  },
+  {
+    id: 63,
+    description: "",
+  },
+  {
+    id: 64,
+    description: "",
+  },
+  {
+    id: 65,
+    description: "",
+  },
+  {
+    id: 71,
+    description: "",
+  },
+  {
+    id: 72,
+    description: "",
+  },
+  {
+    id: 73,
+    description: "",
+  },
+  {
+    id: 74,
+    description: "",
+  },
+  {
+    id: 75,
+    description: "",
+  },
+  {
+    id: 76,
+    description: "",
+  },
+  {
+    id: 81,
+    description: "",
+  },
+  {
+    id: 82,
+    description: "",
+  },
+  {
+    id: 92,
+    description: "",
+  },
+  {
+    id: 91,
+    description: "",
   },
 ];

@@ -10,64 +10,78 @@ const IndonesianMap = ({
   const mapRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
-    if (mapRef !== null && mapRef.current !== null) {
-      let tooltip = mapRef.current.querySelector(".map-tooltip");
-      const path = mapRef.current.querySelectorAll("path");
-      const svgBounding = mapRef.current.getBoundingClientRect();
-      path?.forEach((item) => {
-        // don't add eventlistener if the class is disabled
-        if (item.getAttribute("class") === "disabled") {
-          return;
-        }
+    setTimeout(() => {
+      if (mapRef !== null && mapRef.current !== null) {
+        let tooltip = mapRef.current.querySelector(".map-tooltip");
+        const path = mapRef.current.querySelectorAll("path");
+        const svgBounding = mapRef.current.getBoundingClientRect();
+        path?.forEach(
+          (item: {
+            getAttribute: (arg0: string) => string;
+            id: any;
+            setAttribute: (arg0: string, arg1: string) => void;
+            addEventListener: (
+              arg0: string,
+              arg1: { (): void; (): void }
+            ) => void;
+            getBoundingClientRect: () => any;
+            textContent: any;
+          }) => {
+            // don't add eventlistener if the class is disabled
+            if (item.getAttribute("class") === "disabled") {
+              return;
+            }
 
-        // find province props data item
-        const provincePropItem = data.find(
-          (datum) => datum.id == Number(item.id)
-        );
-
-        // set fill color if custom color exist
-        if (provincePropItem?.color) {
-          item.setAttribute("fill", provincePropItem.color);
-        }
-
-        // attach mouseenter event
-        item.addEventListener("mouseenter", function () {
-          const bounding = item.getBoundingClientRect();
-          item.setAttribute("fill", provinceHoverColor);
-          if (tooltip !== null) {
-            const displayTooltip = "display: block";
-            const topTooltip =
-              "top: " + (bounding.top - svgBounding.top - 50 + "px");
-            const leftTooltip =
-              "left: " + (bounding.left - svgBounding.left + "px");
-            tooltip.setAttribute(
-              "style",
-              displayTooltip + "; " + topTooltip + "; " + leftTooltip
+            // find province props data item
+            const provincePropItem = data.find(
+              (datum) => datum.id == Number(item.id)
             );
-            const description = provincePropItem?.description;
-            tooltip.textContent =
-              (item?.textContent || "") +
-              (description ? ": " + description : "");
-          }
-        });
 
-        // when mouse leave hide the tooltip
-        item.addEventListener("mouseleave", function () {
-          // reset fill color
-          if (provincePropItem?.color) {
-            item.setAttribute("fill", provincePropItem?.color);
-          } else {
-            item.setAttribute("fill", provinceColor);
-          }
+            // set fill color if custom color exist
+            if (provincePropItem?.color) {
+              item.setAttribute("fill", provincePropItem.color);
+            }
 
-          // hide tooltip
-          if (tooltip !== null) {
-            tooltip.setAttribute("style", "display: none");
+            // attach mouseenter event
+            item.addEventListener("mouseenter", function () {
+              const bounding = item.getBoundingClientRect();
+              item.setAttribute("fill", provinceHoverColor);
+              if (tooltip !== null) {
+                const displayTooltip = "display: block";
+                const topTooltip =
+                  "top: " + (bounding.top - svgBounding.top - 50 + "px");
+                const leftTooltip =
+                  "left: " + (bounding.left - svgBounding.left + "px");
+                tooltip.setAttribute(
+                  "style",
+                  displayTooltip + "; " + topTooltip + "; " + leftTooltip
+                );
+                const description = provincePropItem?.description;
+                tooltip.textContent =
+                  (item?.textContent || "") +
+                  (description ? ": " + description : "");
+              }
+            });
+
+            // when mouse leave hide the tooltip
+            item.addEventListener("mouseleave", function () {
+              // reset fill color
+              if (provincePropItem?.color) {
+                item.setAttribute("fill", provincePropItem?.color);
+              } else {
+                item.setAttribute("fill", provinceColor);
+              }
+
+              // hide tooltip
+              if (tooltip !== null) {
+                tooltip.setAttribute("style", "display: none");
+              }
+            });
           }
-        });
-      });
-    }
-  }, []);
+        );
+      }
+    }, 1500);
+  }, [provinceColor, provinceHoverColor]);
 
   return (
     <>
