@@ -17,13 +17,11 @@ npm install indonesian-interactive-map
 Import the component in your React application:
 
 ```jsx
-import MyReactComponent from "my-react-component";
+import { IndonesianMap } from 'indonesian-interactive-map';
 
 const App = () => {
   return (
-    <div>
-      <MyReactComponent />
-    </div>
+      <IndonesianMap />
   );
 };
 ```
