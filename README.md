@@ -2,11 +2,31 @@
 
 ## Overview
 
-The Indonesia Interactive Map React Component is an interactive map that you can seamlessly integrate into your React JS applications to present data in an engaging manner, providing a visually appealing representation
+The Indonesian Interactive Map React Component is an interactive map that you can seamlessly integrate into your React JS applications to present data in an engaging manner, providing a visually appealing representation
 
 ## Installation
 
-coming soon
+To use `Indonesian Interactive Map` in your project, you can install it via npm:
+
+```bash
+npm install indonesian-interactive-map
+```
+
+## Usage
+
+Import the component in your React application:
+
+```jsx
+import MyReactComponent from "my-react-component";
+
+const App = () => {
+  return (
+    <div>
+      <MyReactComponent />
+    </div>
+  );
+};
+```
 
 ## Demos
 
