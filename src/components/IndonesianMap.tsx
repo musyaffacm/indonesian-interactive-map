@@ -439,5 +439,4 @@ const IndonesianMap = ({
     </>
   );
 };
-
-export default IndonesianMap;
+export { IndonesianMap };
